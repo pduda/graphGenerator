@@ -1,0 +1,28 @@
+# node.id node.type node.instalation_cost
+NODES
+L1 2 15
+L0 2 15
+AP1 0 0
+AP0 0 0
+END1 3 0
+C1 1 10
+C0 1 10
+
+# link.startNode link.endNode link.routingCost
+LINKS
+AP1 AP0 3 12
+AP0 AP1 3 12
+L1 L0 3 14
+L0 L1 3 14
+C1 L0 3 11
+L0 C1 3 11
+C0 L0 3 11
+L0 C0 3 11
+END1 L0 0 0
+L0 END1 0 0
+END1 L1 0 0
+L1 END1 0 0
+AP1 C1 3 10
+C1 AP1 3 10
+
+

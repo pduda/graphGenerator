@@ -1,0 +1,68 @@
+data;
+
+set APOINTS := AP1 AP0;
+set CABINETS :=  C0;
+set CLOCATIONS :=  L0;
+set END :=  END1;
+
+
+set LINKS := (AP1, AP0) (AP0, AP1) (C0, L0) (L0, C0) (END1, L0) (L0, END1) (AP1, C0) (C0, AP1) (AP0, C0) (C0, AP0) ;
+
+set DEMANDS := (AP1, END1) (AP0, END1) ;
+
+set PATHS := P0 P1 P2 P3;
+
+set PATH_LINK :=
+(P0, AP1, C0) (P0, C0, L0) (P0, L0, END1) 
+(P1, AP1, AP0) (P1, AP0, C0) (P1, C0, L0) (P1, L0, END1) 
+(P2, AP0, C0) (P2, C0, L0) (P2, L0, END1) 
+(P3, AP0, AP1) (P3, AP1, C0) (P3, C0, L0) (P3, L0, END1) 
+;
+
+set PATH_NODE :=
+(P0, AP1) (P0, C0) (P0, L0) (P0, END1) 
+(P1, AP1) (P1, AP0) (P1, C0) (P1, L0) (P1, END1) 
+(P2, AP0) (P2, C0) (P2, L0) (P2, END1) 
+(P3, AP0) (P3, AP1) (P3, C0) (P3, L0) (P3, END1) 
+;
+
+set DEMAND_PATH :=
+AP1 END1 P0
+AP1 END1 P1
+AP0 END1 P2
+AP0 END1 P3
+;
+
+param:	demand_val :=
+AP1 END1	3
+AP0 END1	7
+;
+
+param:	link_cost :=
+AP1 AP0	10
+AP0 AP1	10
+C0 L0	10
+L0 C0	10
+END1 L0	0
+L0 END1	0
+AP1 C0	10
+C0 AP1	10
+AP0 C0	10
+C0 AP0	10
+;
+
+param:	node_cost :=
+L0	15
+AP1	0
+AP0	0
+END1	0
+C0	10
+;
+
+param: routing_cost :=
+P0 6
+P1 9
+P2 6
+P3 9
+;
+
